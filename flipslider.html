@@ -123,14 +123,6 @@
             animation: slide 7s linear infinite;
             height: 50px;
         }
-        .leftbutton-div{
-            position: absolute;
-            /* border-style: solid; */
-            top: 300px;
-            height: 50px;
-            width: 60px;
-            margin-left: 8px;
-        }
         .rightbutton-div{
             position:absolute;
             /* border-style: solid; */
@@ -213,7 +205,7 @@
     </div>
     <div class="leftbutton-div">    
         <button class="leftside-button">
-            <img class="left-img" src="left .png">
+            <img class="left-img" src="left.png">
         </button>
     </div>
     <script>
@@ -225,12 +217,12 @@
         let currentIndex=0;
         let nextElement=document.querySelector('.rightside-button');
         nextElement.addEventListener('click',() =>{
-            currentIndex+=1;
+            currentIndex = (currentIndex + 1) % myarray.length;
             renderNext();
         });
         let prevElement=document.querySelector('.leftside-button');
         prevElement.addEventListener('click',() =>{
-            currentIndex-=1;
+            currentIndex = (currentIndex - 1 + myarray.length) % myarray.length;
             renderNext();
         });
         function renderNext(){
